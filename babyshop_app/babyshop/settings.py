@@ -30,7 +30,6 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'django.contrib.admin',
