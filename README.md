@@ -1,37 +1,100 @@
-# E-Commerce Project For Baby Tools
+# Baby Tools Shop
 
-### TECHNOLOGIES
+## Table of Contents
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [Docker Setup](#docker-setup)
+- [Project Structure](#project-structure)
+- [Links](#links)
+- [Security Notes](#security-notes)
 
-- Python 3.9
-- Django 4.0.2
-- Venv
+---
 
-### Hints
+## Introduction
+This repository contains the **Baby Tools Shop**, a Django-based e-commerce application for baby products.  
+It includes a Docker setup for easy deployment and a structured project ready for local development or cloud deployment.
 
-This section will cover some hot tips when trying to interacting with this repository:
+The purpose of this project is to showcase:
 
-- Settings & Configuration for Django can be found in `babyshop_app/babyshop/settings.py`
-- Routing: Routing information, such as available routes can be found from any `urls.py` file in `babyshop_app` and corresponding subdirectories
+- Django development with models, views, and templates
+- Dockerized deployment
+- Secure handling of environment variables
+- Complete project documentation
 
-### Photos
+---
 
-##### Home Page with login
+## Prerequisites
+Before starting, make sure you have:
 
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080815407.jpg"></img>
-##### Home Page with filter
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080840305.jpg"></img>
-##### Product Detail Page
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080934541.jpg"></img>
+- Python 3.9+
+- Django 5.x
+- Docker & Docker Compose installed (optional)
+- Git
+- Access to a terminal
 
-##### Home Page with no login
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080953570.jpg"></img>
+---
+
+## Quick Start
+### Clone the repository
+```bash
+git clone git@github.com:your-project.git
+cd baby-tools-shop
+git checkout future
+Create a virtual environment 
+bash
+Code kopieren
+python3 -m venv env
+source env/bin/activate  # Linux/macOS
+env\Scripts\activate     # Windows
+Install dependencies
+bash
+Code kopieren
+pip install -r requirements.txt
+Run migrations and start the server
+bash
+Code kopieren
+python manage.py migrate
 
 
-##### Register Page
 
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323081016022.jpg"></img>
+Usage
+Browse products by category
+
+View product details
+
+User registration and login
+
+Filter products on the homepage
+
+Add extra functionality 
+
+Docker Setup
+Build the Docker image
+bash
+Code kopieren
+docker build -t babytools-shop .
+Run the container
 
 
-##### Login Page
 
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323081044867.jpg"></img>
+Notes
+All migrations are applied automatically on container start.
+
+ALLOWED_HOSTS must include the VM IP if running on a remote server.
+
+
+
+
+
+Security Notes
+Do not commit SSH keys, passwords, or API tokens to the repository.
+
+Use environment variables for sensitive information.
+
+Keep .env files outside version control.
+
+Follow naming conventions: UPPER_CASE_WITH_UNDERSCORE for environment variables.
+
+Reference variables using ${VAR_NAME} syntax in Dockerfiles or scripts.
