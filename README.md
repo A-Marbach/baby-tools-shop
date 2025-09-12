@@ -1,14 +1,17 @@
 # Baby Tools Shop
 
+The Baby Tools Shop is a web application developed using Django. This repository contains all the necessary files to build and run the application in a Docker container. The main purpose of this repository is to provide an easy setup and deployment process for a basic e-commerce platform focusing on baby products.
+
 ## Table of Contents
 - [About the Project](#about-the-project)
 - [Quickstart](#quickstart)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Admin Panel](#Admin-Panel)
 - [Security Notes](#security-notes)
 
-## About the Project
-The Baby Tools Shop is a web application developed using Django. This repository contains all the necessary files to build and run the application in a Docker container. The main purpose of this repository is to provide an easy setup and deployment process for a basic e-commerce platform focusing on baby products.
+
+
 
 ## Quickstart
 
@@ -20,10 +23,13 @@ The Baby Tools Shop is a web application developed using Django. This repository
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://github.com/henrymanke/baby-tools-shop.git
+git clone https://github.com/A-Marbach/baby-tools-shop.git
 cd baby-tools-shop
 ```
-
+Copy the example environment file to create your local .env:
+```bash
+cp example.env .env
+```
 Build the Docker image:
 ```bash
 docker build -t baby-tools-shop .
@@ -41,32 +47,92 @@ The application should now be accessible via `http://localhost:8025`.
 ### Configuration
 This application uses environment variables for configuration to enhance security and protect sensitive data. To set up the environment variables:
 
-1. Create a file named `.env` in the root directory of your project.
-2. Add the following environment variables to the `.env` file and replace `<YOUR_VALUE>` with actual values:
+1. Copy the example environment file to create your local `.env`:
 
-   ```plaintext
-   DATABASE_URL=<YOUR_DATABASE_URL>
-   SECRET_KEY=<YOUR_SECRET_KEY>
-   DEBUG=<True/False>
-   ALLOWED_HOSTS=<LIST_OF_HOSTS>
-   ```
+```bash
+cp example.env .env
+```
 
-   Example:
-   ```plaintext
-   DATABASE_URL=postgres://username:password@localhost:5432/mydatabase
-   SECRET_KEY=myverysecretkey
-   DEBUG=False
-   ALLOWED_HOSTS=localhost,127.0.0.1
-   ```
+2. Generate a secure Django SECRET_KEY and add it to your .env:
+
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+
+```
+Copy the generated key and replace the placeholder in your .env:
+
+DATABASE_URL=postgres://username:password@localhost:5432/mydatabase
+SECRET_KEY=<paste_your_generated_key_here>
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+Important: Do not commit your .env to Git. Replace these values with secure ones to run the application safely.
 
 ### Running the Application
 After setting up the environment variables, you can start the application as follows:
 
 ```bash
 docker run --env-file .env --restart unless-stopped -p 8025:8025 -v /path/to/your/data:/data baby-tools-shop
+
 ```
 
 The application is now running on `http://localhost:8025`.
+
+### Admin Panel
+
+After running the application, you can manage products and categories via the Django admin panel.
+
+1. Create an Admin User
+
+To create a superuser account (admin), run:
+
+```bash
+docker exec -it <container_id> python manage.py createsuperuser
+
+```
+Follow the prompts to set:
+
+Username
+
+Email
+
+Password
+
+This account will allow you to log in to the admin panel at [http://localhost:8025/admin/](http://localhost:8025/admin/).
+
+2. Add Categories
+
+Log in to the admin panel with your superuser account.
+
+Click on Categories.
+
+Click Add Category.
+
+Fill in the Name and Slug for the category (e.g., "Toys", "Diapers", "Clothes", "Strollers").
+
+Click Save.
+
+3. Add Products
+
+Click on Products in the admin panel.
+
+Click Add Product.
+
+Fill in the following fields:
+
+Name: Product name
+
+Description: Short description
+
+Price: Product price
+
+Category: Select the category you created
+
+Image: Upload a product image
+
+Click Save.
+
+Repeat for all products you want to add.
 
 ### Useful Commands
 To further manage your application's lifecycle, you can execute the following Docker commands:
