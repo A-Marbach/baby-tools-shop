@@ -58,8 +58,9 @@ cp example.env .env
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
 ```
-Copy the generated key and replace the placeholder in your .env:
+3. Copy the generated key and replace the placeholder in your `.env`:
 
+```env
 DATABASE_URL=postgres://username:password@localhost:5432/mydatabase
 SECRET_KEY=<paste_your_generated_key_here>
 DEBUG=True
