@@ -65,7 +65,7 @@ DATABASE_URL=postgres://username:password@localhost:5432/mydatabase
 SECRET_KEY=<paste_your_generated_key_here>
 DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
-
+```
 > ⚠️ **Important:**  
 > Do not commit your `.env` to Git.  
 > Replace these values with secure ones to run the application safely.
