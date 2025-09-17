@@ -3,7 +3,6 @@
 The Baby Tools Shop is a web application developed using Django. This repository contains all the necessary files to build and run the application in a Docker container. The main purpose of this repository is to provide an easy setup and deployment process for a basic e-commerce platform focusing on baby products.
 
 ## Table of Contents
-- [About the Project](#about-the-project)
 - [Quickstart](#quickstart)
 - [Usage](#usage)
 - [Configuration](#configuration)
