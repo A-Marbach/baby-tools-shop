@@ -66,7 +66,9 @@ SECRET_KEY=<paste_your_generated_key_here>
 DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
 
-Important: Do not commit your .env to Git. Replace these values with secure ones to run the application safely.
+> ⚠️ **Important:**  
+> Do not commit your `.env` to Git.  
+> Replace these values with secure ones to run the application safely.
 
 ### Running the Application
 After setting up the environment variables, you can start the application as follows:
@@ -90,47 +92,31 @@ To create a superuser account (admin), run:
 docker exec -it <container_id> python manage.py createsuperuser
 
 ```
-Follow the prompts to set:
+Follow the prompts to set your username, email, and password.
 
-Username
+**Screenshot of the superuser creation page:**
 
-Email
+<img src="docs/img/create_superuser.png" alt="Django Admin: Create Superuser" width="600">
 
-Password
 
 This account will allow you to log in to the admin panel at [http://localhost:8025/admin/](http://localhost:8025/admin/).
 
 2. Add Categories
 
-Log in to the admin panel with your superuser account.
+Log in to the admin panel with your superuser account.  
+Click on **Categories** → **Add Category**, fill in Name and Slug, then click **Save**.
 
-Click on Categories.
+**Screenshot of Add Category page:**
 
-Click Add Category.
-
-Fill in the Name and Slug for the category (e.g., "Toys", "Diapers", "Clothes", "Strollers").
-
-Click Save.
+<img src="docs/img/add_category.png" alt="Django Admin: Add Category" width="600">
 
 3. Add Products
 
-Click on Products in the admin panel.
+Click on **Products** → **Add Product**, fill in all required fields (Name, Description, Price, Category, Image), and then click **Save**.
 
-Click Add Product.
+**Screenshot of Add Product page:**
 
-Fill in the following fields:
-
-Name: Product name
-
-Description: Short description
-
-Price: Product price
-
-Category: Select the category you created
-
-Image: Upload a product image
-
-Click Save.
+<img src="docs/img/add_products.png" alt="Django Admin: Add Product" width="600">
 
 Repeat for all products you want to add.
 
